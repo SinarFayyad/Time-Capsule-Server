@@ -6,17 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Message;
+use App\Traits\ResponseTrait;
 
 class MessageController extends Controller{
     
+
     function getAllMessages(){
         $messages = Message::all();
-
-        $response = [];
-        $response["status"] = "success";
-        $response["payload"] = $messages;
-
-        return json_encode($response, 200);
+        
     }
 
     function addOrUpdateTask(Request $request, $id = null){
