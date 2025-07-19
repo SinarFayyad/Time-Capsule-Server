@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Services\User;
-
+namespace App\Services;
 use App\Models\Message;
 
 class MessageService
