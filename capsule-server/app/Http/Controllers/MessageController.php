@@ -14,12 +14,12 @@ class MessageController extends Controller{
     }
 
     function addMessage(Request $request){
-        
-        $message = MessageService::addMessage($request);
+        $message = new Message;
+        $message = MessageService::addMessage($message, $request);
         return $this->responseJSON($message);
     }
 
-    function deleteMessage (Request $request, $id){
+    function deleteMessage ($id){
         $message = MessageService::deleteMessage($id);
         return $this->responseJSON($message);
     }
