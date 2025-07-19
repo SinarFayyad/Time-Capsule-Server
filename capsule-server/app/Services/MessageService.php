@@ -16,8 +16,7 @@ class MessageService
         return Message::find($id);
     }
 
-    static function addMessage($data){
-        $message = new Message;
+    static function addMessage($message , $data){
 
         $message->user_id = $data["user_id"];
         $message->title = $data["title"]; 
@@ -29,8 +28,8 @@ class MessageService
         $message->reveal_date =  $data["reveal_date"];
         $message->location =  $data["location"] ;
         $message->privacy =  $data["privacy"];
-        $message->save();
 
+        $message->save();
         return $message;
     }
     
