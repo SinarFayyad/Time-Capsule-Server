@@ -11,7 +11,7 @@ Route::post("/login", [AuthController::class , "login"]);
 Route::post("/register", [AuthController::class , "register"]);
 
 Route::get("/user/{id}", [UserController::class , "getUser"]);
-Route::post("/updateUser/{id?}", [UserController::class, "UpdateUser"]);
+Route::post("/updateUser/{id}", [UserController::class, "UpdateUser"]);
 
 Route::get("/messages/{id?}", [MessageController::class, "getMessages"]);
 Route::post("/addMessage", [MessageController::class, "addMessage"]);
