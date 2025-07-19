@@ -10,7 +10,7 @@ use App\Http\Controllers\MessageController;
 Route::post("/login", [AuthController::class , "login"]);
 Route::post("/register", [AuthController::class , "register"]);
 
-Route::get("/user/id", [UserController::class , "getUser"]);
+Route::get("/user/{id}", [UserController::class , "getUser"]);
 Route::post("/update_user/{id?}", [UserController::class, "UpdateUser"]);
 
 Route::get("/messages/{id?}", [MessageController::class, "getMessages"]);
