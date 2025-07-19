@@ -15,7 +15,7 @@ class UserController extends Controller
 
     function UpdateUser(Request $request, $id){
 
-        $user = UserService::getUsers($id);
+        $user = UserService::getUser($id);
         $user = UserService::UpdateUser($request, $user);
         return $this->responseJSON($user);
     }
