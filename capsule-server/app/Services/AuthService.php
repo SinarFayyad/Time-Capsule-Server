@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Common;
+namespace App\Services;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,6 +20,7 @@ class AuthService{
         if (!$token) {
             return null;
         }
+        
 
         $user = Auth::user();
         $user->token = $token;
