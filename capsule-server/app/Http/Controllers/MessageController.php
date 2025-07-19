@@ -16,15 +16,10 @@ class MessageController extends Controller{
         return $this->responseJSON($messages);
     }
 
-    function addOrUpdateTask(Request $request, $id = null){
-        if($id){
-            $message = Message::find($id);
-        }else{
-            $message = new Message;
-        }
+    function addMessage(Request $request, $id = null){
         
-        
-        $message = MessageService::createOrUpdateMessage($request, $message);
+        $message = new Message;
+        $message = MessageService::addMessage($request, $message);
         return $this->responseJSON($message);
     }
 

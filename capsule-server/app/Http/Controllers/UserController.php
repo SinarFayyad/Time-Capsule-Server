@@ -4,23 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\UserService;
+use App\Models\User;
 // 2
 class UserController extends Controller
 {//4
-    function getUsers(){
-        $users = UserService::getUsers();
-        return $this->responseJSON($users);
+    function getUser($id){
+        $user = UserService::getUser($id);
+        return $this->responseJSON($user);
     }
 
-    function addOrUpdateUser(Request $request, $id = null){
-        
-        if($id){
-            $user = UserService::getUsers($id);
-        }else{
-            $user = new User;
-        }
+    function UpdateUser(Request $request, $id){
 
-        $user = UserService::createOrUpdateUser($request, $user);
+        $user = UserService::getUsers($id);
+        $user = UserService::UpdateUser($request, $user);
         return $this->responseJSON($user);
     }
 }
