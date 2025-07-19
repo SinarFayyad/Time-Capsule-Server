@@ -17,18 +17,18 @@ class MessageService
         return Message::find($id);
     }
 
-    static function createOrUpdateMessage($data, $message){
+    static function addMessage($data, $message){
         
         $message->user_id = 0;// ?
-        $message->title = $data["title"] || $message->title; 
-        $message->color = $data["color"] || $message->color ;
-        $message->mood =  $data["mood"] ||  $message->mood;
-        $message->message =  $data["message"] ||  $message->message ;
-        $message->media =  $data["media"] ||  $message->media ;
-        $message->audio =  $data["audio"] ||  $message->audio ;
-        $message->reveal_date =  $data["reveal_date"] ||  $message->reveal_date;
-        $message->location =  $data["location"] ||  $message->location ;
-        $message->privacy =  $data["privacy"] ||  $message->privacy ;
+        $message->title = $data["title"]; 
+        $message->color = $data["color"];
+        $message->mood =  $data["mood"];
+        $message->message =  $data["message"];
+        $message->media =  $data["media"];
+        $message->audio =  $data["audio"] ;
+        $message->reveal_date =  $data["reveal_date"];
+        $message->location =  $data["location"] ;
+        $message->privacy =  $data["privacy"];
         $message->save();
 
         return $message;

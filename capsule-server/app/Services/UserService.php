@@ -5,21 +5,17 @@ use App\Models\User;
 
 class UserService
 {
-    /**
-     * Create a new class instance.
-     */
-   static function getUsers($id = null){
-        if(!$id){
-            return User::all();
-        }
+    static function getUser($id){
         return User::find($id);
     }
-
-    static function createOrUpdateUser($data, $user){
+    /**
+     * Create a new class instance.
+    */
+    static function UpdateUser($data, $user){
        
-        $user->username = $data["username"] || $user->username; 
-        $user->email = $data["email"] || $user->email;
-        $user->password = bcrypt($data["password"] || $user->password);
+        $user->username = $data["username"]; 
+        $user->email = $data["email"];
+        $user->password = bcrypt($data["password"]);
 
         $user->save();
         return $user;
