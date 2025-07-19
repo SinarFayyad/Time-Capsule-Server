@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Services;
+use App\Models\User;
 
 class UserService
 {
     /**
      * Create a new class instance.
      */
-   static function getAllUsers($id = null){
+   static function getUsers($id = null){
         if(!$id){
             return User::all();
         }

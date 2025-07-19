@@ -10,7 +10,7 @@ class MessageService
      * Create a new class instance.
      */
     
-    static function getAllMessages($id = null){
+    static function getMessages($id = null){
         if(!$id){
             return Message::all();
         }
@@ -18,7 +18,8 @@ class MessageService
     }
 
     static function createOrUpdateMessage($data, $message){
-        $message->user_id = 0;
+        
+        $message->user_id = 0;// ?
         $message->title = $data["title"] || $message->title; 
         $message->color = $data["color"] || $message->color ;
         $message->mood =  $data["mood"] ||  $message->mood;
@@ -29,8 +30,14 @@ class MessageService
         $message->location =  $data["location"] ||  $message->location ;
         $message->privacy =  $data["privacy"] ||  $message->privacy ;
         $message->save();
+
         return $message;
     }
     
+    function deleteMessage($id){
+
+        $message = Message::find($id);
+        $message->delete();
+    }
 }
 
