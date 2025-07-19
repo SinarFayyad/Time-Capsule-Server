@@ -10,7 +10,7 @@ class MessageService
      * Create a new class instance.
      */
     
-    static function getMessages($id = null){
+    static function getMessages($id){
         if(!$id){
             return Message::all();
         }
@@ -38,6 +38,7 @@ class MessageService
 
         $message = Message::find($id);
         $message->delete();
+        return $message;
     }
 }
 

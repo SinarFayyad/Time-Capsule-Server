@@ -20,7 +20,6 @@ class AuthService{
         if (!$token) {
             return null;
         }
-        
 
         $user = Auth::user();
         $user->token = $token;
