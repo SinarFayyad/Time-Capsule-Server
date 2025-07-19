@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Services\MessageService;
 use Illuminate\Http\Request;
-
 use App\Models\Message;
-use App\Traits\ResponseTrait;
 
 class MessageController extends Controller{
     
-
     function getMessages($id = null){
         $messages = MessageService::getMessages($id);
         return $this->responseJSON($messages);
