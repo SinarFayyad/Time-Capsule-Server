@@ -13,7 +13,7 @@ Route::post("/register", [AuthController::class , "register"]);
 Route::get("/user/{id}", [UserController::class , "getUser"]);
 Route::post("/updateUser/{id}", [UserController::class, "UpdateUser"]);
 
-Route::get("/messages/{id?}", [MessageController::class, "getMessages"]);
 Route::post("/addMessage", [MessageController::class, "addMessage"]);
+Route::get("/messages/{id?}", [MessageController::class, "getMessages"]);
 Route::get("/deleteMessage/{id}", [MessageController::class, "deleteMessage"]);
 
