@@ -14,3 +14,4 @@ Route::post("/add_update_message/{id?}", [MessageController::class, "addOrUpdate
 Route::get("/messages", [MessageController::class, "getMessages"]);
 Route::get("/remove_message", [MessageController::class, "removeMessages"]);
 
+// 1 
