@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\UserService;
-
+// 2
 class UserController extends Controller
-{
+{//4
     function getUsers(){
         $users = UserService::getUsers();
         return $this->responseJSON($users);
