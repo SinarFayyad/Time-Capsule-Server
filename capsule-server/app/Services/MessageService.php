@@ -16,9 +16,10 @@ class MessageService
         return Message::find($id);
     }
 
-    static function addMessage($data, $message){
-        
-        $message->user_id = 0;// ?
+    static function addMessage($data){
+        $message = new Message;
+
+        $message->user_id = $data["user_id"];
         $message->title = $data["title"]; 
         $message->color = $data["color"];
         $message->mood =  $data["mood"];
@@ -33,7 +34,7 @@ class MessageService
         return $message;
     }
     
-    function deleteMessage($id){
+    static function deleteMessage($id){
 
         $message = Message::find($id);
         $message->delete();
