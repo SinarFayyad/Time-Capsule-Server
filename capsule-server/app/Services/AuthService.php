@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
 class AuthService{
    
@@ -18,10 +17,10 @@ class AuthService{
         $credentials = $request->only('email', 'password');
 
         $token = JWTAuth::attempt($credentials);
+
         if (!$token) {
             return null;
         }
-
         $user = Auth::user();
         $user->token = $token;
         return $user;
