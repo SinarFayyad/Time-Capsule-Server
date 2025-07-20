@@ -8,9 +8,7 @@ class UserService
     static function getUser($id){
         return User::find($id);
     }
-    /**
-     * Create a new class instance.
-    */
+   
     static function UpdateUser($data, $user){
        
         $user->username = $data["username"]? $data["username"]: $user->username; 

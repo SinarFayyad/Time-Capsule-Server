@@ -5,16 +5,11 @@ use App\Models\Message;
 
 class MessageService
 {
-    /**
-     * Create a new class instance.
-     */
-    
     static function getMessages($id){
-        if (!$id){
-            return Message::where('privacy', 'public')->get();
-        }else{
-            return Message::find($id);
-        }     
+
+        return $id? Message::find($id):
+                    Message::where('privacy', 'public')->get();
+ 
     }
 
     static function addMessage($message , $data){
