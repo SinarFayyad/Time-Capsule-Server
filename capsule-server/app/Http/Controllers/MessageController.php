@@ -17,8 +17,9 @@ class MessageController extends Controller{
     }
 
     function addMessage(Request $request){
+        $ip = $request->ip(); 
         $message = new Message;
-        $message = MessageService::addMessage($message, $request);
+        $message = MessageService::addMessage($message, $request, $ip);
         return $this->responseJSON($message);
     }
 
