@@ -16,7 +16,7 @@ class AuthService{
         ]);
         $credentials = $request->only('email', 'password');
 
-        $token = Auth::attempt($credentials);
+        $token = JWTAuth::attempt($credentials);
         if (!$token) {
             return null;
         }
