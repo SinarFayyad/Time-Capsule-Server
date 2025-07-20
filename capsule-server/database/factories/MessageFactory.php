@@ -18,7 +18,7 @@ class MessageFactory extends Factory
     public function definition(): array
     {
         return [
-            "user_id" => 1, 
+            "user_id" => rand(1,20), 
             "title" => fake()->sentence(),
             "color" => fake()->safeColorName(),
             "mood" => fake()->word(),
@@ -26,7 +26,7 @@ class MessageFactory extends Factory
             "audio" => fake()->paragraph(), 
             "media" => fake()->paragraph(),
             "reveal_date" => fake()->date(),
-            "location" => fake()->paragraph(), 
+            "location" => fake()->sentence(), 
             "privacy" => fake()->randomElement(['public', 'private', 'unlisted'])
         ];
     }
