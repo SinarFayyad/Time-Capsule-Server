@@ -2,6 +2,7 @@
 
 namespace App\Services;
 use App\Models\Message;
+use Stevebauman\Location\Facades\Location;
 
 class MessageService
 {
