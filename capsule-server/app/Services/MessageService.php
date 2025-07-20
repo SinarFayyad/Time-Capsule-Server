@@ -13,7 +13,7 @@ class MessageService
  
     }
 
-    static function addMessage($message , $data, $ip){
+    static function addMessage($message , $data, $location){
 
         $message->user_id = $data["user_id"];
         
@@ -24,10 +24,8 @@ class MessageService
         $message->audio =  $data["audio"];
         $message->message =  $data["message"];
         $message->privacy =  $data["privacy"];
-        $message->location =  Location::get($ip);
+        $message->location =  $location->cityName;
         $message->reveal_date =  $data["reveal_date"];
-
-        
 
         $message->save();
         return $message;
