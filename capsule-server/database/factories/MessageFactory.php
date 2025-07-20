@@ -25,9 +25,9 @@ class MessageFactory extends Factory
             "message" => fake()->paragraph(),
             "audio" => fake()->paragraph(), 
             "media" => fake()->paragraph(),
-            "reveal_date" => fake()->dateTime(),
+            "reveal_date" => fake()->date(),
             "location" => fake()->paragraph(), 
-            "privacy" => fake()->randomElement(['public', 'private', 'friends'])
+            "privacy" => fake()->randomElement(['public', 'private', 'unlisted'])
         ];
     }
 }

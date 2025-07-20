@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text("message");
             $table->text("audio");
             $table->text("media");
-            $table->DateTime("reveal_date");
+            $table->Date("reveal_date");
             $table->string("location");
             $table->string("privacy");
             $table->timestamps();
