@@ -21,7 +21,7 @@ class AuthService{
         if (!$token) {
             return null;
         }
-        $user = Auth::user();
+        $user = JWTAuth::user();
         $user->token = $token;
         return $user;
     }
