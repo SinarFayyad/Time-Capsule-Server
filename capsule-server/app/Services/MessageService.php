@@ -5,17 +5,17 @@ use App\Models\Message;
 
 class MessageService
 {
-    static function getMessages($id){
+    static function getMessages($user_id){
 
-        return $id? Message::find($id):
-                    Message::where('privacy', 'public')->get();
+        return $user_id? Message::find($user_id):
+                         Message::where('privacy', 'public')->get();
  
     }
 
     static function addMessage($message , $data){
 
         $message->user_id = $data["user_id"];
-        
+
         $message->mood =  $data["mood"];
         $message->title = $data["title"]; 
         $message->color = $data["color"];

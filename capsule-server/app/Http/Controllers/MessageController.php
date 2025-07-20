@@ -8,9 +8,9 @@ use App\Models\Message;
 
 class MessageController extends Controller{
     
-    function getMessages($id = null){
+    function getMessages($user_id = null){
 
-        $messages = MessageService::getMessages($id);
+        $messages = MessageService::getMessages($user_id);
 
         return $messages?  $this->responseJSON($messages):
                            $this ->responseJSON (null , "Not found", 404);
