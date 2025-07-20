@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Stevebauman\Location\Facades\Location;
 use App\Services\MessageService;
 use Illuminate\Http\Request;
 use App\Models\Message;
@@ -18,11 +17,9 @@ class MessageController extends Controller{
     }
 
     function addMessage(Request $request){
-        $ip = $request->ip(); 
-        $location =Location::get($ip);
-        
+
         $message = new Message;
-        $message = MessageService::addMessage($message, $request, $location);
+        $message = MessageService::addMessage($message, $request);
         return $this->responseJSON($message);
     }
 

@@ -2,7 +2,6 @@
 
 namespace App\Services;
 use App\Models\Message;
-use Stevebauman\Location\Facades\Location;
 
 class MessageService
 {
@@ -13,7 +12,7 @@ class MessageService
  
     }
 
-    static function addMessage($message , $data, $location){
+    static function addMessage($message , $data){
 
         $message->user_id = $data["user_id"];
         
@@ -24,7 +23,7 @@ class MessageService
         $message->audio =  $data["audio"];
         $message->message =  $data["message"];
         $message->privacy =  $data["privacy"];
-        $message->location =  $location->cityName;
+        $message->location =  $data["location"];
         $message->reveal_date =  $data["reveal_date"];
 
         $message->save();
