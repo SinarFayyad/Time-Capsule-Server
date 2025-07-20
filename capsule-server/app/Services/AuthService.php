@@ -44,4 +44,9 @@ class AuthService{
         $user->token = $token;
         return $user;
     }
+
+    static function logout (){
+        $user = Auth::logout();
+        return $user;
+    }
 }

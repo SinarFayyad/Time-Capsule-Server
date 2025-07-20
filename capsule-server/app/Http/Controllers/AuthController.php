@@ -19,4 +19,9 @@ class AuthController extends Controller{
         $user = AuthService::register($request);
         return $this->responseJSON($user);
     }
+
+    public function logout(){
+        $user = AuthService::logout();
+        return $this->responseJSON($user);
+    }
 }
