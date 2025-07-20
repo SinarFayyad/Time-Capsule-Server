@@ -9,7 +9,7 @@ use App\Http\Controllers\MessageController;
 
 Route::post("/login", [AuthController::class , "login"]);
 Route::post("/register", [AuthController::class , "register"]);
-Route::middleware('auth:api')->post('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('jwt.auth');
 
 Route::get("/user/{id}", [UserController::class , "getUser"]);
 Route::post("/updateUser/{id}", [UserController::class, "UpdateUser"]);

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
 class AuthService{
    
@@ -46,7 +47,7 @@ class AuthService{
     }
 
     static function logout (){
-        $user = Auth::logout();
-        return $user;
+        JWTAuth::logout();
+        return null;
     }
 }
