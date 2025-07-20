@@ -10,10 +10,11 @@ class MessageService
      */
     
     static function getMessages($id){
-        if(!$id){
-            return Message::all();
-        }
-        return Message::find($id);
+        if (!$id){
+            return Message::where('privacy', 'public')->get();
+        }else{
+            return Message::find($id);
+        }     
     }
 
     static function addMessage($message , $data){
