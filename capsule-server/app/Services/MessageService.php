@@ -7,9 +7,13 @@ class MessageService
 {
     static function getMessages($user_id){
 
-        return $user_id? Message::find($user_id):
+        return $user_id? Message::findByUserId($user_id):
                          Message::where('privacy', 'public')->get();
  
+    }
+
+    static function findByUserId($user_id){
+        return $this->where('user_id', $user_id)->get();
     }
 
     static function addMessage($message , $data){
