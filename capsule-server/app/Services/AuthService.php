@@ -47,7 +47,7 @@ class AuthService{
     }
 
     static function logout (){
-        JWTAuth::logout();
-        return null;
+        $user = Auth::logout();
+        return $user;
     }
 }
