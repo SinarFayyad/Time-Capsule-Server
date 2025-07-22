@@ -21,7 +21,7 @@ class MessageFactory extends Factory
             "user_id" => rand(1,20), 
             "title" => fake()->sentence(),
             "color" => fake()->safeColorName(),
-            "mood" => fake()->word(),
+            "mood" => fake()->randomElement(['Happy', 'Sad', 'Angry']),
             "message" => fake()->paragraph(),
             "audio" => fake()->paragraph(), 
             "media" => fake()->paragraph(),
