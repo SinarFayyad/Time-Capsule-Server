@@ -17,12 +17,12 @@ class AuthService{
         ]);
         $credentials = $request->only('email', 'password');
 
-        $token = JWTAuth::attempt($credentials);
+        $token = Auth::attempt($credentials);
 
         if (!$token) {
             return null;
         }
-        $user = JWTAuth::user();
+        $user = Auth::user();
         $user->token = $token;
         return $user;
     }
