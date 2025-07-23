@@ -8,7 +8,7 @@ class MessageService
     static function getCapsules($user_id){
 
         return Message::where('user_id', $user_id)
-                            ->where('reveal_date', '<', now()->toDateString())
+                            ->where('reveal_date', '>', now()->toDateString())
                             ->get();
     }
 
@@ -20,11 +20,11 @@ class MessageService
 
         if ($user_id){
             return Message::where('user_id', $user_id)
-                            ->where('reveal_date', '>=', now()->toDateString())
+                            ->where('reveal_date', '<=', now()->toDateString())
                             ->get();
         }else{ 
             return Message::where('privacy', 'public')
-                     ->where('reveal_date', '>=', now()->toDateString())
+                     ->where('reveal_date', '<=', now()->toDateString())
                      ->get(); 
         }
     }
