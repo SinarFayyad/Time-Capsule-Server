@@ -21,13 +21,13 @@ class MessageService
 
     static function getMessagesByMood($mood)
     {
-        $publicMessages = Message::getMessages(null); // null = public messages
+        $publicMessages = MessageService::getMessages(null);
         return $publicMessages->where('mood', $mood)->get();
     }
 
     static function getMessagesByCountry($location)
     {
-        $publicMessages = Message::getMessages(null);
+        $publicMessages = Messageservice::getMessages(null);
         return $publicMessages->where('location', $location)->get();
     }
 
