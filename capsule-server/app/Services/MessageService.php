@@ -5,11 +5,11 @@ use App\Models\Message;
 
 class MessageService
 {
-
     static function getCapsules($user_id){
+
         return Message::where('user_id', $user_id)
-                        ->where('reveal_date', '<', now()->toDateString())
-                        ->get();
+                            ->where('reveal_date', '<', now()->toDateString())
+                            ->get();
     }
 
     static function getMessage($id){

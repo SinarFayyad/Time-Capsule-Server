@@ -18,6 +18,6 @@ Route::post("/addMessage", [MessageController::class, "addMessage"]);
 Route::get("/message/{id}", [MessageController::class, "getMessage"]);
 Route::get("/messages/{user_id?}", [MessageController::class, "getMessages"]);
 Route::get("/deleteMessage/{id}", [MessageController::class, "deleteMessage"]);
-Route::get("/getCapsules/{user_id}", [MessagesController::class, "getCapsules"]); 
+Route::get("/getCapsules/{user_id}", [MessageController::class, "getCapsules"]); 
 Route::get("/getMessagesByMood/{mood}", [MessageController::class , "getMessagesByMood"]);
 Route::get("/getMessagesByCountry/{location}", [MessageController::class , "getMessagesByCountry"]);
