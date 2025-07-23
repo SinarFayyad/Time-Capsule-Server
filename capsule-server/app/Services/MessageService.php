@@ -15,8 +15,9 @@ class MessageService
         if ($user_id){
             return Message::where('user_id', $user_id)->get();
         }else{ 
-            $publicMessages= Message::where('privacy', 'public')->get();
-            return  $publicMessages->where('reveal_date', '>=', now()->toDateString())->get();
+            return Message::where('privacy', 'public')
+                     ->where('reveal_date', '>=', now()->toDateString())
+                     ->get(); 
         }
  
     }
