@@ -13,7 +13,7 @@ class MessageController extends Controller{
         return $messages?  $this->responseJSON($messages):
                            $this ->responseJSON (null , "Not found", 404);
     }
-    
+
     function getMessage($id)
     {
         $message = MessageService::getMessage($id);
@@ -29,19 +29,13 @@ class MessageController extends Controller{
                            $this ->responseJSON (null , "Not found", 404);
     }
 
-    function getMessagesByMood ($mood)
+    function filterMessages (Request $request)
     {
-        $messages = MessageService:: getMessagesByMood($mood);
+        $messages = MessageService:: filterMessages($request);
         return $messages?  $this->responseJSON($messages):
                 $this ->responseJSON (null , "Not found", 404);
     }
 
-    function getMessagesByCountry ($location)
-    {
-        $messages = MessageService:: getMessagesByMood($location);
-        return $messages?  $this->responseJSON($messages):
-                $this ->responseJSON (null , "Not found", 404);
-    }
 
     function addMessage(Request $request){
 

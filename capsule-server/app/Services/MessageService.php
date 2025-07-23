@@ -29,18 +29,21 @@ class MessageService
         }
     }
 
-    static function getMessagesByMood($mood)
+    static function filterMessages($data)
     {
-        $publicMessages = MessageService::getMessages();
-        return $publicMessages->where('mood', $mood)->get();
-    }
+        $mood= $data["mood"]?? null;
+        $location =$data["location"]?? null;
 
-    static function getMessagesByCountry($location)
-    {
-        $publicMessages = Messageservice::getMessages();
-        return $publicMessages->where('location', $location)->get();
+        $query = MessageService::getMessages();
+        
+        if ($mood!== null){
+            $query = $query->where('mood', $mood);
+        }
+        if ($location == null){
+            $query = $query->where('location', $location);
+        }
+        return $query;
     }
-
 
     static function addMessage($message , $data){
 
