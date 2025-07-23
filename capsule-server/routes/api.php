@@ -19,4 +19,4 @@ Route::get("/message/{id}", [MessageController::class, "getMessage"]);
 Route::get("/messages/{user_id?}", [MessageController::class, "getMessages"]);
 Route::get("/deleteMessage/{id}", [MessageController::class, "deleteMessage"]);
 Route::get("/getCapsules/{user_id}", [MessageController::class, "getCapsules"]); 
-Route::post("/filterMessages", [MessageController::class , "filterMessages"]);
+// Route::post("/filterMessages", [MessageController::class , "filterMessages"]);

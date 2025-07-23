@@ -29,12 +29,12 @@ class MessageController extends Controller{
                            $this ->responseJSON (null , "Not found", 404);
     }
 
-    function filterMessages (Request $request)
-    {
-        $messages = MessageService:: filterMessages($request);
-        return $messages?  $this->responseJSON($messages):
-                $this ->responseJSON (null , "Not found", 404);
-    }
+    // function filterMessages (Request $request)
+    // {
+    //     $messages = MessageService:: filterMessages($request);
+    //     return $messages?  $this->responseJSON($messages):
+    //             $this ->responseJSON (null , "Not found", 404);
+    // }
 
 
     function addMessage(Request $request){

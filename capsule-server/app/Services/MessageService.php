@@ -29,21 +29,21 @@ class MessageService
         }
     }
 
-    static function filterMessages($data)
-    {
-        $mood= $data["mood"];
-        $location =$data["location"];
+    // static function filterMessages($data)
+    // {
+    //     $mood= $data["mood"];
+    //     $location =$data["location"];
 
-        $query = MessageService::getMessages();
+    //     $query = MessageService::getMessages();
         
-        if ($mood !== null){
-            $query = $query->where('mood', $mood);
-        }
-        if ($location !== null){
-            $query = $query->where('location', $location);
-        }
-        return $query;
-    }
+    //     if ($mood !== null){
+    //         $query = $query->where('mood', $mood);
+    //     }
+    //     if ($location !== null){
+    //         $query = $query->where('location', $location);
+    //     }
+    //     return $query;
+    // } filtration handled on the frontend
 
     static function addMessage($message , $data){
 
