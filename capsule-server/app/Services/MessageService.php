@@ -13,18 +13,22 @@ class MessageService
     static function getMessages($user_id){
 
         return $user_id? Message::where('user_id', $user_id)->get():
-                         Message::where('privacy', 'public')->get();
+                         Message::where('privacy', 'public')
+                         ->where('reveal_date', '>=', now()->toDateString())
+                         ->get();
  
     }
 
     static function getMessagesByMood ($mood)
     {
-        return Message::where('mood', $mood)->get();
+        $publicMessages = Message::getMessages(null); // null = public messages
+        return $publicMessages->where('mood', $mood)->get();
     }
 
     static function getMessagesByCountry ($location)
     {
-        return Message::where('location', $location)->get();
+        $publicMessages = Message::getMessages(null);
+        return $publicMessages->where('location', $location)->get();
     }
 
 
