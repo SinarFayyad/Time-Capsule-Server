@@ -8,6 +8,13 @@ use App\Models\Message;
 
 class MessageController extends Controller{
     
+    function getMessage($id)
+    {
+        $message = MessageService::getMessage($id)
+        return $message?  $this->responseJSON($message):
+                           $this ->responseJSON (null , "Not found", 404);
+    }
+
     function getMessages($user_id = null){
 
         $messages = MessageService::getMessages($user_id);
@@ -16,6 +23,20 @@ class MessageController extends Controller{
                            $this ->responseJSON (null , "Not found", 404);
     }
 
+    function getMessagesByMood ($mood)
+    {
+        $messages = MessageService:: getMessagesByMood($mood)
+        return $messages?  $this->responseJSON($messages):
+                $this ->responseJSON (null , "Not found", 404);
+    }
+
+    function getMessagesByCountry ($location)
+    {
+        $messages = MessageService:: getMessagesByMood($location)
+        return $messages?  $this->responseJSON($messages):
+                $this ->responseJSON (null , "Not found", 404);
+    }
+    
     function addMessage(Request $request){
 
         $message = new Message;

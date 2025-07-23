@@ -15,6 +15,10 @@ Route::get("/user/{id}", [UserController::class , "getUser"]);
 Route::post("/updateUser/{id}", [UserController::class, "UpdateUser"]);
 
 Route::post("/addMessage", [MessageController::class, "addMessage"]);
+Route::get("/message/{id}", [MessageController::class, "getMessage"]);
 Route::get("/messages/{user_id?}", [MessageController::class, "getMessages"]);
 Route::get("/deleteMessage/{id}", [MessageController::class, "deleteMessage"]);
+Route::get("/getMessagesByMood/{mood}"), [MessageController::class , "getMessagesByMood{mood}"];
+Route::get("/getMessagesByCountry/{location}"), [MessageController::class , "getMessagesByCountry/{location}"];
+
 

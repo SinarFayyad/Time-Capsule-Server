@@ -5,12 +5,28 @@ use App\Models\Message;
 
 class MessageService
 {
+
+    static function getMessage($id){
+        return Message::find($id);
+    }
+
     static function getMessages($user_id){
 
         return $user_id? Message::where('user_id', $user_id)->get():
                          Message::where('privacy', 'public')->get();
  
     }
+
+    static function getMessagesByMood ($mood)
+    {
+        return Message::where('mood', $mood)->get();
+    }
+
+    static function getMessagesByCountry ($location)
+    {
+        return Message::where('location', $location)->get();
+    }
+
 
     static function addMessage($message , $data){
 
