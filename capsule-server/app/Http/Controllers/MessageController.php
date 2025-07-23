@@ -8,6 +8,12 @@ use App\Models\Message;
 
 class MessageController extends Controller{
     
+    function getCapsules($user_id){
+        $messages = MessageService::getCapsules($user_id);
+        return $messages?  $this->responseJSON($messages):
+                           $this ->responseJSON (null , "Not found", 404);
+    }
+    
     function getMessage($id)
     {
         $message = MessageService::getMessage($id);

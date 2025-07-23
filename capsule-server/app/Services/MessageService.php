@@ -6,6 +6,12 @@ use App\Models\Message;
 class MessageService
 {
 
+    static function getCapsules($user_id){
+        return Message::where('user_id', $user_id)
+                        ->where('reveal_date', '<', now()->toDateString())
+                        ->get();
+    }
+
     static function getMessage($id){
         return Message::find($id);
     }
@@ -13,13 +19,14 @@ class MessageService
     static function getMessages($user_id= null){
 
         if ($user_id){
-            return Message::where('user_id', $user_id)->get();
+            return Message::where('user_id', $user_id)
+                            ->where('reveal_date', '>=', now()->toDateString())
+                            ->get();
         }else{ 
             return Message::where('privacy', 'public')
                      ->where('reveal_date', '>=', now()->toDateString())
                      ->get(); 
         }
- 
     }
 
     static function getMessagesByMood($mood)
