@@ -31,15 +31,15 @@ class MessageService
 
     static function filterMessages($data)
     {
-        $mood= $data["mood"]?? null;
-        $location =$data["location"]?? null;
+        $mood= $data["mood"];
+        $location =$data["location"];
 
         $query = MessageService::getMessages();
         
-        if ($mood!== null){
+        if ($mood !== null){
             $query = $query->where('mood', $mood);
         }
-        if ($location == null){
+        if ($location !== null){
             $query = $query->where('location', $location);
         }
         return $query;
