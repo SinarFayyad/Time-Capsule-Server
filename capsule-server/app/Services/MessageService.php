@@ -10,24 +10,26 @@ class MessageService
         return Message::find($id);
     }
 
-    static function getMessages($user_id){
+    static function getMessages($user_id= null){
 
-        return $user_id? Message::where('user_id', $user_id)->get():
-                         Message::where('privacy', 'public')
-                         ->where('reveal_date', '>=', now()->toDateString())
-                         ->get();
+        if ($user_id){
+            return Message::where('user_id', $user_id)->get();
+        }else{ 
+            $publicMessages= Message::where('privacy', 'public')->get();
+            return  $publicMessages->where('reveal_date', '>=', now()->toDateString())->get();
+        }
  
     }
 
     static function getMessagesByMood($mood)
     {
-        $publicMessages = MessageService::getMessages(null);
+        $publicMessages = MessageService::getMessages();
         return $publicMessages->where('mood', $mood)->get();
     }
 
     static function getMessagesByCountry($location)
     {
-        $publicMessages = Messageservice::getMessages(null);
+        $publicMessages = Messageservice::getMessages();
         return $publicMessages->where('location', $location)->get();
     }
 
