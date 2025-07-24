@@ -9,7 +9,7 @@ class UserService
         return User::find($id);
     }
    
-    static function UpdateUser($data, $user){
+    static function updateUser($data, $user){
        
         $user->username = $data["username"]? $data["username"]: $user->username; 
         $user->email = $data["email"]?$data["email"]:$user->email;

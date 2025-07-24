@@ -13,10 +13,10 @@ class UserController extends Controller
         return $this->responseJSON($user);
     }
 
-    function UpdateUser(Request $request, $id){
+    function updateUser(Request $request, $id){
 
         $user = UserService::getUser($id);
-        $user = UserService::UpdateUser($request, $user);
+        $user = UserService::updateUser($request, $user);
         return $this->responseJSON($user);
     }
 }
