@@ -13,7 +13,6 @@ class UserService
        
         $user->username = $data["username"]? $data["username"]: $user->username; 
         $user->email = $data["email"]?$data["email"]:$user->email;
-        $user->password = bcrypt($data["password"]|| $user->password);
 
         $user->save();
         return $user;
